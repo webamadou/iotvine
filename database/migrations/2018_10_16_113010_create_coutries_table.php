@@ -26,7 +26,7 @@ class CreateCoutriesTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table){
-            $table->integer('country_id')->unsigned()->index();
+            $table->integer('country_id')->unsigned()->index()->nullable();
         });
     }
 

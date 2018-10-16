@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name')->default('');
+            $table->string('email')->unique()->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('service_api')->nullable()->comment("The api with wich the user sign up");
@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->mediumText('image')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('url')->default(null)->comment("An id used to create an referencial url");
+            $table->string('url')->default('')->comment("An id used to create an referencial url");
             $table->integer("contest_alert")->nullable()->comment("Weather or not want to receive alert about his/her contest");
             $table->integer("newsletter_notifications")->nullable()->comment("If the user will receive our newsletter");
             $table->string("notification_email")->nullable()->comment("Alternative email to use for notifications. If not define default email is used");

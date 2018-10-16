@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -62,15 +64,52 @@ class LoginController extends Controller
      */
     public function handleProviderFacebookCallback(){
         $user = Socialite::driver('facebook')->user(); // Fetch authenticated user
-        dd($user);
+        $avatar = explode('?',$user->avatar);
+        $userDetails = [
+            'email'         => $user->email,
+            'name'          => $user->nickname,
+            'token'         => $user->token,
+            'fullname'      => $user->name,
+            'image'         => @$avatar[0],
+            'service_api'   => 'twitter'
+        ];
+        return $this->handleProviderOAuth($userDetails);
     }
     public function  handleProviderTwitterCallback(){
         $user = Socialite::driver('twitter')->user() ;
-        dd($user) ;
+        $userDetails = [
+            'email'         => $user->email,
+            'name'          => $user->nickname,
+            'token'         => $user->tokenSecret,
+            'fullname'      => $user->name,
+            'image'         => $user->avatar,
+            'service_api'   => 'twitter'
+        ];
+        return $this->handleProviderOAuth($userDetails);
     }
     public function  handleProviderGoogleCallback(){
         $user = Socialite::driver('google')->user() ;
-        //$accessTokenResponseBody = $user->accessTokenResponseBody;
-        dd($user) ;
+        $userDetails = [
+            'email'         => $user->email,
+            'name'          => $user->user['name']['givenName'],
+            'token'         => $user->token,
+            'fullname'      => $user->user['name']['givenName'].' '.$user->user['name']['familyName'],
+            'image'         => $user->avatar_original,
+            'service_api'   => 'google'
+        ];
+        return $this->handleProviderOAuth($userDetails);
+    }
+    protected function handleProviderOAuth($data = []){
+        if (!empty($data)){
+            $user = User::where('email', @$data['email'])->first() ;//Searching a user with this email
+            if(!$user){//If user doesnt exist we create it
+                $user = User::create(
+                    [ 'email'=>@$data['email'], 'token'=>@$data['token'] ],
+                    $data
+                );
+            }
+            Auth::login($user, true);
+        }
+        return redirect()->to('/home');
     }
 }

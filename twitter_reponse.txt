@@ -1,0 +1,130 @@
+<?php
+[
+    token=> "89127350-VHWV5mRRKnI3fqq4hbnln4ePyaxI3nror65A9RQ4G",
+    tokenSecret=> "UGPqmuSTUxlNKMvpf8SMRM16YKQ1b3KQAfFoFaFQsZ80p",
+    id=> "89127350",
+    nickname=> "webamadou",
+    name=> "Amadou Abdoulaye",
+    email=> null,
+    avatar=> "http=>//pbs.twimg.com/profile_images/456001384970584064/-fshqcKU_normal.png",
+    user=>  [
+        "id_str" => "89127350",
+        "entities" =>  [
+            "url" =>  [
+                "urls" =>  [
+                    0 =>  [
+                        "url" => "http=>//t.co/izVyZz8Hh8",
+                        "expanded_url" => "http=>//www.bawebpro.com",
+                        "display_url" => "bawebpro.com",
+                        "indices" =>  [0 => 0,1 => 22],
+                  ],
+                ],
+              ],
+            "description" =>  [
+                "urls" => []
+            ],
+        ],
+        "protected" => false,
+        "followers_count" => 44,
+        "friends_count" => 109,
+        "listed_count" => 0,
+        "created_at" => "Wed Nov 11 06=>53=>58 0000 2009",
+        "favourites_count" => 13,
+        "utc_offset" => null,
+        "time_zone" => null,
+        "geo_enabled" => true,
+        "verified" => false,
+        "statuses_count" => 110,
+        "lang" => "en",
+        "status" =>  [
+            "created_at" => "Sat Mar 24 21=>25=>31 0000 2018",
+            "id" => 977657687528919040,
+            "id_str" => "977657687528919040",
+            "text" => "New XAMPP with PHP 7.2.3, 7.1.15, 7.0.28 &amp; 5.6.34 https=>//t,.co/Ov3ZaXQvnx #xampp via @apachefriends",
+            "truncated" => false,
+            "entities" =>  [
+            "hashtags" =>  [
+                0 =>  [
+                    "text"      => "xampp",
+                    "indices"   =>  [0 => 78,1 => 84],
+              ],
+            ],
+            "symbols" => [],
+            "user_mentions" =>  [
+                0 =>  [
+                    "screen_name" => "apachefriends",
+                    "name" => "Apache Friends",
+                    "id" => 8356022,
+                    "id_str" => "8356022",
+                        "indices" =>  [0 => 89, 1 => 103],
+                    ],
+                ],
+                "urls" =>  [
+                    0 =>  [
+                        "url" => "https=>//t.co/Ov3ZaXQvnx",
+                        "expanded_url" => "https=>//www.apachefriends.org/blog/new_xampp_20180315.html",
+                        "display_url" => "apachefriends.org/blog/new_xampp…",
+                        "indices" =>  [0 => 54, 1 => 77]
+                    ],
+                ],
+          ],
+          "source" => '<a href="http=>//twitter.com" rel="nofollow">Twitter Web Client</a>',
+          "in_reply_to_status_id" => null,
+          "in_reply_to_status_id_str" => null,
+          "in_reply_to_user_id" => null,
+          "in_reply_to_user_id_str" => null,
+          "in_reply_to_screen_name" => null,
+          "geo" => null,
+          "coordinates" => null,
+          "place" => null,
+          "contributors" => null,
+          "is_quote_status" => false,
+          "retweet_count" => 0,
+          "favorite_count" => 0,
+          "favorited" => false,
+          "retweeted" => false,
+          "possibly_sensitive" => false,
+          "lang" => "en"
+        ],
+        "contributors_enabled" => false,
+        "is_translator" => false,
+        "is_translation_enabled" => false,
+        "profile_background_color" => "131516",
+        "profile_background_tile" => true,
+        "profile_link_color" => "0A344A",
+        "profile_sidebar_border_color" => "C0DEED",
+        "profile_sidebar_fill_color" => "DDEEF6",
+        "profile_text_color" => "333333",
+        "profile_use_background_image" => true,
+        "has_extended_profile" => false,
+        "default_profile" => false,
+        "default_profile_image" => false,
+        "following" => false,
+        "follow_request_sent" => false,
+        "notifications" => false,
+        "translator_type" => "none",
+        "suspended" => false,
+        "needs_phone_verification" => false,
+        "url" => "http=>//t.co/izVyZz8Hh8",
+        "profile_background_image_url" => "http=>//abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https" => "https=>//abs.twimg.com/images/themes/theme1/bg,.png",
+        "profile_image_url" => "http=>//pbs.twimg,.com/profile_images/456001384970584064/-fshqcKU_normal.png",
+        "profile_image_url_https" => "https=>//pbs.twimg,.com/profile_images/456001384970584064/-fshqcKU_normal.png",
+        "profile_banner_url" => "https=>//pbs.twimg.com/profile_banners/89127350/1357727024",
+        "location" => "Sénégal",
+        "description" => "Web developper web Master",
+  ],
+  avatar_original=> "http=>//pbs.twimg.com/profile_images/456001384970584064/-fshqcKU.png"
+]
+
+
+mysql://
+DBUSERNAME: ba93e4dafbd90e
+:
+DBpwd: 3ac25436
+@
+dbhost: us-cdbr-iron-east-01.cleardb.net
+
+database: heroku_7813722eb258323
+
+    ?reconnect=true
