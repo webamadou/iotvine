@@ -73,9 +73,6 @@
         <a class="btn btn-primary" href="{{ route('fblog') }}">
             Facebook Login
         </a>
-        <a class="btn btn-primary" href="{{ route('twtlog') }}">
-            Twitter Login
-        </a>
         <a class="btn btn-primary" href="{{ route('goolog') }}">
             Google Login
         </a>

@@ -103,10 +103,7 @@ class LoginController extends Controller
         if (!empty($data)){
             $user = User::where('email', @$data['email'])->first() ;//Searching a user with this email
             if(!$user){//If user doesnt exist we create it
-                $user = User::create(
-                    [ 'email'=>@$data['email'], 'token'=>@$data['token'] ],
-                    $data
-                );
+                $user = User::create($data);
             }
             Auth::login($user, true);
         }
