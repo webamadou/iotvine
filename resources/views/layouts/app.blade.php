@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="all-content-wrapper" id="app">
-        <div class="header-advance-area">{{ config('app.name', '{{ config('app.name', '
+        <div class="header-advance-area">
             <div class="header-top-area">
                 <div class="container-fluid">
                     <div class="row d-flex flex-column flex-md-row justify-content-between">
