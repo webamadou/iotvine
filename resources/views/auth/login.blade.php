@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card login-form">
+                <div class="card-header"><h3>{{ __('Authenticate to IOTVINE') }}</h3></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -52,30 +52,29 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fa fa-lock fa-2x"></i> {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link btn-block" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
                         </div>
                     </form>
                 </div>
+                <div class="divider">AUTHENTICATE WITH</div>
+                <div class="panel-body">
+                    <a class="btn btn-success btn-block fbbtn" href="{{ route('fblog') }}">
+                        <i class="fa fa-facebook-square fa-2x"></i> Facebook Login
+                    </a>
+                    <a class="btn btn-primary btn-block goobtn" href="{{ route('goolog') }}">
+                        <i class="fa fa-google-plus fa-2x"></i> Google Login
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="panel-heading">Login with Facebook</div>
-    <div class="panel-body">
-        <a class="btn btn-primary" href="{{ route('fblog') }}">
-            Facebook Login
-        </a>
-        <a class="btn btn-primary" href="{{ route('goolog') }}">
-            Google Login
-        </a>
     </div>
 </div>
 @endsection
