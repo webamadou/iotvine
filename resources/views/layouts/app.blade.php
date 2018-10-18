@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'iotvine') }}</title>
+    <title>iotvine</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Styles -->
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="all-content-wrapper" id="app">
-        <div class="header-advance-area">
+        <div class="header-advance-area">{{ config('app.name', '{{ config('app.name', '
             <div class="header-top-area">
                 <div class="container-fluid">
                     <div class="row d-flex flex-column flex-md-row justify-content-between">
@@ -27,7 +27,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="logo-pro">
                                             <a class="navbar-brand" href="{{ url('/') }}">
-                                                {{ config('app.name', 'Iotvine') }}
+                                                {{ 'Iotvine' }}
                                             </a>
                                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                                 <span class="navbar-toggler-icon"></span>
