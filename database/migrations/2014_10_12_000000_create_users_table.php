@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->string('service_api')->nullable()->comment("The api with wich the user sign up");
+            $table->string('service_api')->nullable()->comment("The api with wich the user signed up");
             $table->mediumText('token')->nullable()->comment("The token of the api used to sign up");
             $table->string("fullname")->nullable();
             $table->mediumText('image')->nullable();
