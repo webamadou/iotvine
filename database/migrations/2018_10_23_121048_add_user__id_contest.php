@@ -15,7 +15,11 @@ class AddUserIdContest extends Migration
     {
         Schema::table('contests', function (Blueprint $table){
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id', 'user_id_contests_fk')->references('id')->on('users');
+            $table->foreign('user_id', 'user_id_contests_fk')
+            ->references('id')
+            ->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('no action');
         });
     }
 

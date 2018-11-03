@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
-    <div class="all-content-wrapper" id="app">
+    <div class="all-content-wrapper">
         <div class="header-advance-area">
             <div class="header-top-area">
                 <div class="container-fluid">
@@ -70,11 +71,22 @@
                 </div>
             </div>
         </div>
-        <div class="section-admin container-fluid" style="margin-top: 80px">
+        <div class="container-fluid" style="margin-top: 80px; min-height: 90vh;">
             <div class="row admin text-center">
                 <div class="col-md-12">
                     <div class="row">
                         @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Iotvine</a> All rights reserved.</p>
+                        </div>
                     </div>
                 </div>
             </div>

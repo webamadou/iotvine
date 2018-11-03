@@ -3444,7 +3444,7 @@ Copyright (c) 2015 Daniel Eden
 	color:#fff;
 	z-index:9;
 	position:relative;
-	
+
 }
 .alert-success-style1 .sucess-op, .alert-success-style2 .sucess-op, .alert-success-style3 .sucess-op, .alert-success-style4 .sucess-op{
 	opacity:1;
@@ -3730,7 +3730,7 @@ Copyright (c) 2015 Daniel Eden
 	border-left:0px solid #ccc;
 	border-top:1px solid #ccc;
 	border-bottom:1px solid #ccc;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 .button-drop-style-one .btn-button-ct.btn-button-primary-ct{
     background: #337ab7;
@@ -3739,7 +3739,7 @@ Copyright (c) 2015 Daniel Eden
 	border-top:1px solid #337ab7;
 	border-bottom:1px solid #337ab7;
 	color: #fff;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 .button-drop-style-one .btn-button-ct.btn-button-success-ct{
     background: #398439;
@@ -3748,7 +3748,7 @@ Copyright (c) 2015 Daniel Eden
 	border-top:1px solid #398439;
 	border-bottom:1px solid #398439;
 	color: #fff;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 .button-drop-style-one .btn-button-ct.btn-button-warning-ct{
     background: #f0ad4e;
@@ -3757,7 +3757,7 @@ Copyright (c) 2015 Daniel Eden
 	border-top:1px solid #f0ad4e;
 	border-bottom:1px solid #f0ad4e;
 	color: #fff;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 .button-drop-style-one .btn-button-ct.btn-button-danger-ct{
     background: #d9534f;
@@ -3766,7 +3766,7 @@ Copyright (c) 2015 Daniel Eden
 	border-top:1px solid #d9534f;
 	border-bottom:1px solid #d9534f;
 	color: #fff;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 .dropdown-menu.another-drop-pro-ten{
 	top:72%;
@@ -4230,7 +4230,7 @@ a.meanmenu-reveal{display:none}
 }
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Your template name 
+    Template Name: Your template name
     Template URI: http://bootexperts.com
     Description: This is html5 template
     Author: BootExperts
@@ -4238,10 +4238,10 @@ a.meanmenu-reveal{display:none}
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     1. Theme Default CSS (body, link color, section etc)
 
 -----------------------------------------------------------------------------------*/
@@ -4505,12 +4505,12 @@ ul.dtl-social li a{
 	background:#2b2a2a;
 }
 .header-top-menu .navbar-nav>li .dropdown-menu{
-	border: 0px solid #ccc; 
+	border: 0px solid #ccc;
     border: 0px solid rgba(0,0,0,.15);
-	background-color: #303030;	
+	background-color: #303030;
 }
 .header-right-info .navbar-nav>li .dropdown-menu{
-	border: 0px solid #ccc; 
+	border: 0px solid #ccc;
     border: 0px solid rgba(0,0,0,.15);
 }
 .header-top-menu .nav>li>a:focus, .header-top-menu .nav>li>a:hover, .header-top-menu .nav>li>a:active {
@@ -4595,7 +4595,7 @@ ul.dtl-social li a{
 	padding:18px 10px;
 }
 .header-right-info {
-	
+
 }
 .header-right-info ul.header-right-menu li{
 	display:inline-block;
@@ -5145,7 +5145,7 @@ ul.cus-product-sl-rp li h5{
 	font-size:20px;
 	color:#fff;
 	text-transform: capitalize;
-} 
+}
 .cus-gh-hd-pro h2{
 	font-size:20px;
 	color:#fff;
@@ -5562,7 +5562,7 @@ ul.tab-custon-design, ul.tab-review-design {
 }
 .rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
   color: #24caa1;
-} 
+}
 .rating > input:checked + label:hover, .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, .rating > input:checked ~ label:hover ~ label {
   color: #24caa1;
@@ -5688,7 +5688,7 @@ ul#single-product-tab li{
 	background:#f7941d;
 }
 .single-pro-size span, .color-quality-details span {
-  display: inline-block; 
+  display: inline-block;
   font-weight: 300;
   height: 25px;
   line-height: 25px;
@@ -5787,7 +5787,7 @@ ul#single-product-tab li{
 	color:#fff;
 }
 .review-content-section .input-group input[type="text"]{
-	
+
 }
 .review-content-section .input-group input::-webkit-input-placeholder, .product-delivary .form-group input::-webkit-input-placeholder, .form-group input::-webkit-input-placeholder, .review-content-section input::-webkit-input-placeholder {
     color:#fff;
@@ -6629,17 +6629,16 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     margin-bottom: 0;
 }
 .form-control {
-    background-color: #152036;
+    /*background-color: #152036;*/
     background-image: none;
-    border: 1px solid #152036;
+    border: 2px solid #152036;
     border-radius: 1px;
-    color: inherit;
+    color: #152036;
     display: block;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
     width: 100%;
 	height:40px;
-	color:#fff;
 }
 .custom-go-button .btn-primary, .custom-dropdowns-button .dropdown-toggle, .dropdown-segmented .dropdown-toggle, .dropdown-segmented .btn-white {
     background-color: #e12503;
@@ -7821,7 +7820,7 @@ th.fc-day-header.fc-widget-header {
 	border-color: #152036;
 }
 .review-pro-edt button:hover, .review-pro-edt button:focus, .review-pro-edt button:active{
-	background:#152036 !important; 
+	background:#152036 !important;
 	border-color: #152036 !important;
 	outline:none;
 }
@@ -7853,3 +7852,80 @@ th.fc-day-header.fc-widget-header {
     flex-direction: row;
     align-items: center;
 }
+.header-advance-area {
+    position: relative;
+    z-index: 999;
+}
+.breadcome-heading.add-contest-wrapper a {
+    color: #fff;
+    font-size: x-large;
+    text-align: center;
+}
+.contest-card {
+    margin: 0 0 2vh;
+}
+.contest-card .personal-info-wrap {
+    background: #fff;
+    border: 1px solid #f3f2f2;
+    position: relative;
+    padding: 0
+}
+.contest-card .widget-head-info-box {
+    padding: 0;
+    text-align: center;
+    background: transparent;
+    animation: none;
+}
+.contest-card .widget-head-info-box h2 {
+    color: #1b2a47;
+    font-size: large;
+    position: absolute;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1vh;
+    width: 100%;
+}
+.contest-details {
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.contest-card .contest-countdown {
+    position: absolute;
+    z-index: 9;
+    top: 22%;
+    left: 1vw;
+    padding: 1px 4px;
+    background: #962b2b;
+}
+.contest-card .settings-link {
+    position: absolute;
+    z-index: 99;
+    top: 60%;
+    left: 1vw;
+    background: #267dc7;
+    padding: 1vh 1vw;
+}
+.contest-card .widget-head-info-box img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+.contest-card .widget-text-box.contest-tags {
+    background: #1b2a47;
+    position: relative;
+    color: #ffffff;
+}
+.contest-card .widget-text-box.contest-tags ul.text-right.like-love-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+

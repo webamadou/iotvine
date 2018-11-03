@@ -15,7 +15,7 @@ class AddPrizeIdContest extends Migration
     {
         Schema::table('contests', function (Blueprint $table){
             $table->integer('prize_id')->unsigned() ;
-            $table->foreign('prize_id', 'prize_id_contests_fk')->references('id')->on('prizes');
+            $table->foreign('prize_id', 'prize_id_contests_fk')->references('id')->on('prizes')->onUpdate('cascade')->onDelete('no action');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPrizeIdContest extends Migration
      */
     public function down()
     {
-        Schema::table('contest', function (Blueprint $table){
+        Schema::table('contests', function (Blueprint $table){
             $table->dropForeign('prize_id_contests_fk');
             $table->dropColumn('prize_id');
         });

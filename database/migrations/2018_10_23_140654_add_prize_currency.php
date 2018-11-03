@@ -15,7 +15,11 @@ class AddPrizeCurrency extends Migration
     {
         Schema::table('prizes', function (Blueprint $table){
             $table->integer('currency_id')->unsigned();
-            $table->foreign('currency_id', 'currency_id_prizes_fk')->references('id')->on('currencies')->onDelete('no action')->onUpdate('no action');
+            $table->foreign('currency_id', 'currency_id_prizes_fk')
+                ->references('id')
+                ->on('currencies')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

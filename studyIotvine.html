@@ -1,0 +1,97 @@
+<div class="custom-elementor-button-wrapper">
+	<a href="http://webamadou.com/contact/" class="custom-elementor-button-link" role="button">
+		<span class="elementor-button-content-wrapper">
+			<span class="icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </span>
+			<span class="elementor-button-text text">CONTACTEZ-MOI</span>
+		</span>
+	</a>
+</div>
+
+<style>
+.custom-elementor-button-wrapper {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.custom-elementor-button-wrapper a {
+    background: #123f66;
+    color: #fff;
+    padding: 2vh 2vw;
+    margin: 0 auto;
+    display: inline-block;
+}
+.custom-elementor-button-wrapper a .text, .custom-elementor-button-wrapper a .icon {
+    color: #fff;
+}
+@media only screen and (max-width: 767px){
+	#mainnav-mobi {
+	    display: block;
+	    margin: 0 auto;
+	    width: 100%;
+	    position: absolute;
+	    bottom: 0;
+	    background-color: #1c1c1c;
+	    margin-top: 15px;
+	    z-index: 1000;
+	}
+}
+</style>
+
+
+entries
+	id, name, description, code,social_network_id, icon, status
+contest_entry
+	id, contest_id, entry_id, entry_link, configs={entity: value}
+Participant
+	id, constest_entry_id,id_adress,email,status,winner,ranking
+Prizes
+	id, user_id, name, description, images, status, type[electronic, physic],
+Contests_prizes
+	id, contest_id, prize_id, quantity, custom_description, custom_image, status
+
+	id, context_id, 
+socil_network: 
+	id, name, description, icon, status
+======================================================
+
+entry method
+>> Facebook = 
+		FB like entry
+			-> fb page url + [exclude facebook cover in entry widget, Show friend picture in contest, Include post in pages]
+		Post engagement 
+			-> post url
+>> Instagram 
+		Follow entry
+			> link instagram account, description
+
+		tag entry
+			>the #tag, + [display image, limit entrie, post type[video or/and images]]
+>> Newsletter
+		Newsletter Entry
+		keeper entry
+>> Youtube
+		Subscribe
+			> youtube channel
+		watch video
+			> video ID or URL
+				+ player setting: auto play video
+								  Show control
+								  disable keyboard
+								  Show relted video
+								  Show nnotations
+				+ description
+>> Twitter
+		Follow Entry
+			> twitter url + [description]
+		Retweet entry
+			> 
+		Reply entry
+			> 
+
+
+Hello! je me suis recement lancé dans une carrière de freelance. J'qi une experience de six ans. Je parle le PHP, RUBY, reactJs, VueJs, le français et l'anglais :-D . Je suis discrètement confiant, naturellement curieux et toujours soucieux d'acquérir de nouvelles compétences.
+
+
+Laravel et Rails facilitent enormement le development backend. Ce sont les deux outils avec lesquels je construis le backend d'un site ou un API performant et sécurisé.
+
+

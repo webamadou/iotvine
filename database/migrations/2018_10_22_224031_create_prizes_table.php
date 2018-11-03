@@ -23,7 +23,7 @@ class CreatePrizesTable extends Migration
             $table->integer('type')->default(null)->comment('type of prize: 1=electronic,2=physique') ;
             $table->text('status')->default(null) ;
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade')->onupdate('cascade') ;
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('no action')->onupdate('no action') ;
         });
     }
 

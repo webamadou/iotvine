@@ -3,83 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Contest;
+use App\Http\Resources\ContestsResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class ContestController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index()
-    {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    public function index(){
+        // Get contest paginated
+        $contests   = Contest::orderBy('created_at', 'desc')->paginate(6);
+
+        return view('contests/index', compact('contests'));
+    }
+
+    public function create(){
+        $user = Auth::user()->id;
+        return view();
+    }
+
+    public function store(Request $request){
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function show(Contest $contest) {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function edit($slug) {
+        $contest = Contest::where('slug',$slug)->first();
+        return view('contests.update', compact('contest'));
+    }
+
+    public function editPageTwo($slug){
+        $contest = Contest::where('slug', $slug)->first();
+        return view('contests.pageTwo', compact('contest'));
+    }
+
+    public function update(Request $request, Contest $contest) {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Contest  $contest
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contest $contest)
-    {
-        //
+    public function updatePageOne(Request $request) {
+        $contest = Contest::find($request->id);
+        if ($request->input('step') === 'one'){
+            $this->validate($request, [
+                'name'  => 'required',
+                'start' => 'required',
+                'end'   => 'required'
+            ]);
+            $contest->name          = $request->input('name');
+            $contest->start         = $request->input('start');
+            $contest->end           = $request->input('end');
+            $contest->description   = $request->input('description');
+        }
+        //return response()->json(['success'=>'Got Simple Ajax Request.','request'=>$contest->description]);
+        if ($contest->save()) {
+            return ['response' => 'SUCCESS','data' => $contest];
+        } else {
+            return ['response' => 'ERROR'];
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Contest  $contest
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contest $contest)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contest  $contest
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contest $contest)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Contest  $contest
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contest $contest)
-    {
+    public function destroy(Contest $contest) {
         //
     }
 }
