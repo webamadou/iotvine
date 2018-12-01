@@ -17,11 +17,11 @@ class CreateEntriesTable extends Migration
             //id, name, description, code,social_network_id, icon, status
             $table->increments('id');
             $table->string('name');
-            $table->text('description')->default(null);
-            $table->string('code')->default(null);
+            $table->text('description')->nullable(true);
+            $table->string('code')->nullable(true);
             $table->integer('network_id')->unsigned();
-            $table->string('icon')->default(null);
-            $table->integer('status')->default(null);
+            $table->string('icon')->nullable(true);
+            $table->integer('status')->nullable(true);
             $table->timestamps();
             $table->foreign('network_id')->references('id')->on('networks')->ondelete('cascade')->onupdate('cascade');
         });

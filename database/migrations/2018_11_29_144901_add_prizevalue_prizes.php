@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugToContest extends Migration
+class AddPrizevaluePrizes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddSlugToContest extends Migration
      */
     public function up()
     {
-        Schema::table('contests', function (Blueprint $table){
-            $table->string('slug')->nullable()->after('url')->comment('This is different from the url colomn. It can be usefull to set up nice url');
+        Schema::table('prizes',function(Blueprint $table){
+            $table->integer('prize_value')->unsigned()->nullable(true)->comment('This is a vaue of the prize');
         });
     }
 
@@ -25,8 +25,8 @@ class AddSlugToContest extends Migration
      */
     public function down()
     {
-        Schema::table('contests', function (Blueprint $table){
-            $table->dropColumn('slug');
+        Schema::table('prizes', function (Blueprint $table){
+            $table->dropColumn('prize_value');
         });
     }
 }

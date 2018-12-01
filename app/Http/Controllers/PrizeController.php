@@ -12,8 +12,7 @@ class PrizeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         //
     }
 
@@ -22,8 +21,7 @@ class PrizeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         //
     }
 
@@ -33,9 +31,24 @@ class PrizeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $prize = Prize::find($request->id)==null? new Prize():Contest::find($request->id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'type' => 'required'
+        ]);
+        $prize->name = $request->input('name');
+        $prize->description = $request->input('description');
+        $prize->type = $request->input('type');
+        $prize->prize_value = $request->input('prize_value');
+        $prize->currency_id = $request->input('currency_id');
+        $prize->user_id = $request->input('user_id');
+        if ($prize->save()){
+            return ['response' => 'SUCCESS', 'data' => $prize];
+        } else {
+            return ['response' => 'ERROR', 'message' => $prize->error];
+        }
     }
 
     /**
@@ -44,8 +57,7 @@ class PrizeController extends Controller
      * @param  \App\Prize  $prize
      * @return \Illuminate\Http\Response
      */
-    public function show(Prize $prize)
-    {
+    public function show(Prize $prize){
         //
     }
 
@@ -55,8 +67,7 @@ class PrizeController extends Controller
      * @param  \App\Prize  $prize
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prize $prize)
-    {
+    public function edit(Prize $prize){
         //
     }
 
@@ -67,8 +78,7 @@ class PrizeController extends Controller
      * @param  \App\Prize  $prize
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prize $prize)
-    {
+    public function update(Request $request, Prize $prize){
         //
     }
 
@@ -78,8 +88,7 @@ class PrizeController extends Controller
      * @param  \App\Prize  $prize
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prize $prize)
-    {
+    public function destroy(Prize $prize){
         //
     }
 }

@@ -12,14 +12,14 @@ class ContestsPrizes extends Migration
      * @return void
      */
     public function up(){
-        Schema::create('contests_prizes', function (Blueprint $table){
+        Schema::create('contest_prize', function (Blueprint $table){
             //id, contest_id, prize_id, quantity, custom_description, custom_image, status
             $table->increments('id', true);
             $table->integer('contest_id')->unsigned();
             $table->integer('prize_id')->unsigned();
-            $table->integer('quantity')->unsigned();
-            $table->text('custom_description')->default(null);
-            $table->text('custom_image')->default(null);
+            $table->integer('quantity')->unsigned()->nullable();
+            $table->text('custom_description')->nullable();
+            $table->text('custom_image')->nullable();
             $table->integer('status')->unsigned();
             $table->timestamps();
             $table->foreign('contest_id')
@@ -41,6 +41,6 @@ class ContestsPrizes extends Migration
      * @return void
      */
     public function down(){
-        Schema::dropIfExists('contests_prizes');
+        Schema::dropIfExists('contest_prize');
     }
 }

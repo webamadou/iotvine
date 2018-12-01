@@ -16,13 +16,7 @@
             <div class="breadcome-list">
                 <a href="{{ route('create_contest') }}" title="add a contest" class="btn btn-primary btn-block"><i class="icon nalika-plus"></i> Add a contest</a>
             </div>
-            <!-- <div class="addcontestlink card" style="margin: 0 auto;">
-                <div class="card-body">
-                    <h5 class="card-title">Create a contest</h5>
-                    <p><i class="fa fa-plus fa-3x"></i></p>
-                </div>
-            </div> -->
-            .<div class="row">
+            <div class="row">
             @foreach($contests as $contest)
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contest-card">
                     <div class="personal-info-wrap">
@@ -53,19 +47,6 @@
         </div>
         <div class="paginater">
             {{$contests->links()}}
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                One of three columns
-            </div>
-            <div class="col-sm">
-                One of three columns
-            </div>
-            <div class="col-sm">
-                One of three columns
-            </div>
         </div>
     </div>
 </div>

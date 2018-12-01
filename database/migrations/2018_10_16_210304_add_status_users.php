@@ -15,7 +15,7 @@ class AddStatusUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table){
-            $table->integer('status')->default(1)->comment('This field will be used to tell the status of a user. from -1 to 3 banned, innactif, actif, blocked, deleted');
+            $table->integer('status')->default(1)->comment('This field will be used to tell the status of a user. from -1 to 3 banned, innactif, actif, blocked, deleted')->nullable(true);
         });
     }
 

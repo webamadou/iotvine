@@ -8,5 +8,7 @@ class Network extends Model
 {
     protected $fillable = ['name','description','icon','status'];
 
-
+    public function entries(){
+        return $this->hasMany('App\Entry') ;
+    }
 }

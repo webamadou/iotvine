@@ -14,7 +14,6 @@ class CurrenciesTableSeeder extends Seeder
     {
         DB::table('currencies')->delete();
         $currencies = [
-            ['name' => 'Leke', 'code' => 'ALL', 'symbole'=>'Lek'],
             ['name' => 'Dollars', 'code' => 'USD', 'symbole'=>'$'],
             ['name' => 'Afghanis', 'code' => 'AFN', 'symbole'=>'؋'],
             ['name' => 'Pesos', 'code' => 'ARS', 'symbole'=>'$'],

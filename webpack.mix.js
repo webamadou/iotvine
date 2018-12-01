@@ -15,7 +15,6 @@ mix.js(["resources/js/app.js", "resources/js/scripts.js"], "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .styles(
         [
-            "ressources/styles/bootstrap.min.css",
             "resources/styles/animate.css",
             "resources/styles/accordions.css",
             "resources/styles/alerts.css",

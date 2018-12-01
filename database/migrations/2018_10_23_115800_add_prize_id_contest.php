@@ -14,7 +14,7 @@ class AddPrizeIdContest extends Migration
     public function up()
     {
         Schema::table('contests', function (Blueprint $table){
-            $table->integer('prize_id')->unsigned() ;
+            $table->integer('prize_id')->unsigned()->nullable() ;
             $table->foreign('prize_id', 'prize_id_contests_fk')->references('id')->on('prizes')->onUpdate('cascade')->onDelete('no action');
         });
     }

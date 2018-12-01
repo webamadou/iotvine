@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ContestController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ContestController@index')->name('home');
 //Here we set up the route to login with fb twt and g+
 Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider')->name('fblog');
 Route::get('/login/twitter', 'Auth\LoginController@redirectToTwitterProvider')->name('twtlog');
@@ -28,4 +28,8 @@ Route::get('login/google/callback', 'Auth\LoginController@handleProviderGoogleCa
 Route::get('contest/create', 'ContestController@create')->name('create_contest');
 Route::get('contest/{slug}/configs', 'ContestController@edit')->name('edit_contest');
 Route::post('contestUpdaterPageOne', 'ContestController@updatePageOne');
-Route::get('contestUpdaterPageTwo/{slug}', 'ContestController@editPageTwo');
+Route::get('contestUpdaterPageTwo/{slug}', 'ContestController@editPageTwo')->name('editPageTwo');
+Route::post('contestUpdaterPageTwo', 'ContestController@updatePageTwo');
+Route::get('contestUpdaterPageThree/{slug}', 'ContestController@editPageThree');
+Route::post('contestUpdaterPageThree', 'ContestController@updatePageThree');
+Route::post('storePrize','PrizeController@store')->name('storePrize') ;

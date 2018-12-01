@@ -17,9 +17,10 @@ class CreateNetworksTable extends Migration
             // id, name, description, icon, status
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->text('description')->default(null);
-            $table->string('icon')->default(null);
-            $table->integer('status')->default(null);
+            $table->text('description')->nullable(true);
+            $table->string('icon')->nullable(true);
+            $table->string('color')->nullable(true);
+            $table->integer('status')->nullable(true);
             $table->timestamps();
         });
     }

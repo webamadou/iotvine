@@ -15,13 +15,13 @@ class CreateCoutriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('iso', 4)->nullable()->default(null);
-            $table->string('libelle', 100)->nullable()->default(null);
-            $table->string('nicename', 80)->nullable()->default(null);
-            $table->char('iso3', 3)->nullable()->default(null);
-            $table->smallInteger('numcode')->nullable()->default(null);
-            $table->integer('phonecode')->nullable()->default(null);
-            $table->integer('etat')->nullable()->default(null);
+            $table->char('iso', 4)->nullable(true);
+            $table->string('libelle', 100)->nullable(true);
+            $table->string('nicename', 80)->nullable(true);
+            $table->char('iso3', 3)->nullable(true);
+            $table->smallInteger('numcode')->nullable(true);
+            $table->integer('phonecode')->nullable(true);
+            $table->integer('etat')->nullable(true);
             $table->nullableTimestamps();
         });
 

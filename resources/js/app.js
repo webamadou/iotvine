@@ -6,8 +6,11 @@
  */
 
 require('./bootstrap');
+require('bootstrap/dist/js/bootstrap.bundle');
 
 window.Vue = require('vue');
+window.toastr = require('toastr/toastr');
+window.BootstrapDialog = require('bootstrap3-dialog/dist/js/bootstrap-dialog.min');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
