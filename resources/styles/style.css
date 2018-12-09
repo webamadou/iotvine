@@ -3642,10 +3642,12 @@ th.fc-day-header.fc-widget-header {
     padding: 0
 }
 .contest-card .widget-head-info-box {
-    padding: 0;
-    text-align: center;
-    background: transparent;
-    animation: none;
+	padding: 0;
+	text-align: center;
+	background: transparent;
+	animation: none;
+	position: relative;
+	overflow: hidden;
 }
 .contest-card .widget-head-info-box h2 {
     color: #1b2a47;
@@ -3673,16 +3675,21 @@ th.fc-day-header.fc-widget-header {
     background: #962b2b;
 }
 .contest-card .settings-link {
-    position: absolute;
-    z-index: 99;
-    top: 60%;
-    left: 1vw;
-    background: #267dc7;
-    padding: 1vh 1vw;
+	position: relative;
+	z-index: 99;
+	top: 60%;
+	left: 1vw;
+	background: #267dc7;
+	padding: 1vh 1vw;
+	width: auto;
+	display: inline-block;
 }
+.contest-card .settings-link a, .contest-card .settings-link a:hover, .contest-card .settings-link:link{
+	color: #fff;}
 .contest-card .widget-head-info-box img {
     position: absolute;
     width: 100%;
+	height: 100%;
     top: 0;
     left: 0;
     z-index: 9;
@@ -3691,6 +3698,7 @@ th.fc-day-header.fc-widget-header {
     background: #1b2a47;
     position: relative;
     color: #ffffff;
+	margin: 0 !important;
 }
 .contest-card .widget-text-box.contest-tags ul.text-right.like-love-list {
     padding: 0;

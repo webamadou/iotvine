@@ -16,6 +16,7 @@ Route::get('/', 'ContestController@index');
 Auth::routes();
 
 Route::get('/home', 'ContestController@index')->name('home');
+Route::get('/contests', 'ContestController@index')->name('contests');
 //Here we set up the route to login with fb twt and g+
 Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider')->name('fblog');
 Route::get('/login/twitter', 'Auth\LoginController@redirectToTwitterProvider')->name('twtlog');
@@ -26,8 +27,10 @@ Route::get('login/twitter/callback', 'Auth\LoginController@handleProviderTwitter
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderGoogleCallback');
 //list of contest routes
 Route::get('contest/create', 'ContestController@create')->name('create_contest');
+Route::delete('contests/{slug}', 'ContestController@destroy')->name('deletes_contest');
+Route::get('contest/{slug}', 'ContestController@show')->name('contest_show');
 Route::get('contest/{slug}/configs', 'ContestController@edit')->name('edit_contest');
-Route::post('contestUpdaterPageOne', 'ContestController@updatePageOne');
+Route::post('contestUpdaterPageOne', 'ContestController@updatePageOne')->name('contestUpdaterPageOne');
 Route::get('contestUpdaterPageTwo/{slug}', 'ContestController@editPageTwo')->name('editPageTwo');
 Route::post('contestUpdaterPageTwo', 'ContestController@updatePageTwo');
 Route::get('contestUpdaterPageThree/{slug}', 'ContestController@editPageThree');

@@ -7,6 +7,7 @@
             {!! Form::hidden('step','one') !!}
             {!! Form::hidden('id',null) !!}
             @include('contests/_form')
+            <div c~/>
         {!! Form::close() !!}
     </div>
     <script type="text/javascript">

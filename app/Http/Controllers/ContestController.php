@@ -26,8 +26,8 @@ class ContestController extends Controller
     public function index(){
         $user_id = Auth::user()->id ;
         $contests   = Contest::where(['user_id'=>$user_id,'status'=>1])
-                                ->orderBy('created_at', 'desc')
-                                ->paginate(6);
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
         return view('home', compact('contests'));
     }
 
@@ -41,8 +41,9 @@ class ContestController extends Controller
         //
     }
 
-    public function show(Contest $contest) {
-        //
+    public function show($slug) {
+        $contest = Contest::where('slug',$slug)->first();
+        return view('contests.show', compact('contest'));
     }
 
     public function edit($slug) {
@@ -57,7 +58,7 @@ class ContestController extends Controller
     }
 
     public function editPageThree($slug){
-        $user    = Auth::user();
+        $user       = Auth::user();
         $contest    = Contest::where('slug', $slug)->with('entries')->first();
         $prizes     = Prize::where('user_id',$user->id)->get();
         //dd($contest->entries->contains(1),@$prizes[0]->contests[0]->pivot->quantity);
@@ -75,7 +76,8 @@ class ContestController extends Controller
         $this->validate($request, [
             'name'  => 'required',
             'start' => 'required',
-            'end'   => 'required'
+            'end'   => 'required',
+            'images' => 'nullable|image'
         ]);
         $contest->name          = $request->input('name');
         $contest->start         = $request->input('start');
@@ -83,6 +85,9 @@ class ContestController extends Controller
         $contest->description   = $request->input('description');
         $contest->user_id       = Auth::user()->id;
 
+        if ($request->hasFile('images')){
+            $contest->images    = $request->images->store('public/images/contests');
+        }
         if ($contest->save()) {
             return ['response' => 'SUCCESS','data' => $contest];
         } else {
@@ -97,11 +102,11 @@ class ContestController extends Controller
         if (!empty($entries)){
             foreach ($entries as $id){
                 $synchronises[$id] = [
-                                        'entry_link' => $request->input('entry_'.$id.'_link'),
-                                        'description' => $request->input('entry_'.$id.'_description'),
-                                        'point_per_entry' => $request->input('entry_'.$id.'_point_per_entry'),
-                                        'configs' => $request->input('entry_'.$id.'_config'),
-                                     ];
+                    'entry_link' => $request->input('entry_'.$id.'_link'),
+                    'description' => $request->input('entry_'.$id.'_description'),
+                    'point_per_entry' => $request->input('entry_'.$id.'_point_per_entry'),
+                    'configs' => $request->input('entry_'.$id.'_config'),
+                ];
             }
             $saving = $contest->entries()->sync($synchronises);
             if($saving){
@@ -129,7 +134,31 @@ class ContestController extends Controller
         }
     }
 
-    public function destroy(Contest $contest) {
-        //
+    /**
+     * @param $id
+     * @return ArticleResource
+     */
+    public function destroy($id) {
+        $contest = Contest::findOrFail($id);
+
+        if($contest->delete()) {
+            return redirect()->route('home');
+        }
+    }
+
+    public function fileUpload(){
+        return view('contests.uploadfile');
+    }
+
+    public function fileUploadPost(Request $request){
+        $request->validate([
+            'file' => 'image',
+        ]);
+        $path = $request->file->store('images/contests');
+        dd($path);
+        $request->file->store('logos');
+        /*$fileName = time().'.'.request()->file->getClientOriginalExtension();
+        request()->file->move(public_path('files'),$fileName);*/
+        return response()->json(['success' => 'You have successfully uploadfile']);
     }
 }

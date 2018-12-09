@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Contest extends Model
@@ -47,5 +48,12 @@ class Contest extends Model
         if (@$this->attributes['slug'] == null){
             $this->attributes['slug'] = Str::slug($value);
         }
+    }
+    public function getImagesAttribute(){
+        if($this->attributes['images'] == null){
+            return url('/'). Storage::url('images/contests/default_contest.png');
+        }
+        //return url('/') . Storage::url('images/contests/default_contest.png');
+        return url('/'). Storage::url($this->attributes['images']);
     }
 }

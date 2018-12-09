@@ -18,7 +18,7 @@
             </div>
             <div class="row">
             @foreach($contests as $contest)
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 contest-card">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 contest-card">
                     <div class="personal-info-wrap">
                         <div class="widget-head-info-box">
                             <h2>{{ $contest->name }}</h2>
@@ -29,6 +29,11 @@
                                 <div class="settings-link" data-end-date="{{$contest->end}}">
                                     <a href="{{ route('edit_contest', ['slug'=>$contest->slug]) }}">
                                         <i class="icon nalika-settings"></i> Settings
+                                    </a>
+                                </div>
+                                <div class="settings-link" data-end-date="{{$contest->end}}">
+                                    <a href="{{ route('contest_show', ['slug'=>$contest->slug]) }}">
+                                        <i class="icon nalika-home "></i> Show
                                     </a>
                                 </div>
                             </div>
