@@ -4,10 +4,10 @@
     <div id="app" class="container">
         {!! Form::open(['id'=>'addNewPrize']) !!}
         <input type="hidden" name="user_id" value="{{$user->id}}">
-            <h3 class="aligncenter">{{__('Add a new prize')}}</h3>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#add-prizes" aria-controls="add-prizes">ADD A PRIZE</button>
+            <h5 class="text-center m-4">{{__('Add a new prize')}}</h5>
+        <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#add-prizes" aria-controls="add-prizes">ADD A PRIZE</button>
             @php $show = count($contest->prizes) <= 0?'show':'' @endphp
-            <div class="row collapse" id="add-prizes">
+            <div class="row collapse pt-2 pb-2" id="add-prizes">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -58,6 +58,7 @@
                     <button type="button" id="add_prize" class="btn btn-primary btn-block">Add a prize</button>
                 </div>
             </div>
+            <h5 class="text-center m-4"> -{{__('Or pick  an existing one')}} -</h5>
         {!!Form::close()!!}
         {!! Form::model($contest, ['route' => ['edit_contest','slug'=>$contest->slug],'id'=>'thirdPageUpdate']) !!}
             {!! Form::hidden('step','one') !!}
@@ -101,10 +102,11 @@
                 success:function(data){
                     toastr.success(`Prize saved`);
                     let prize = data.data ;
-                    let prize_line = ` <div class="input-group mb-3">
-                                        <div class="col-xs-1"><input type="checkbox" name="prizes[]" value="${prize.id}" aria-label="Checkbox for following text input" checked="checked"></div>
-                                        <div class="col-xs-11"><li>${prize.name}</li></div>
-                                    </div>`;
+                    let prize_line = `<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 prize-line row"><div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><input type="checkbox" name="prizes[]" value="${prize.id}" id="${prize.id}" aria-label="Checkbox for following text input"></div> <label for="31" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">${prize.name}</label></div>`;
+                    $('#add-prizes').removeClass('show');
+                    $('#add-prizes input').each(function (e) {
+                        $(this).val('');
+                    });
                     $('#list-prizes').prepend(prize_line) ;
                 },
                 error: function (request, status, error) {

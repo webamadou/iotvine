@@ -54422,6 +54422,7 @@ $('body').on('click', '.entry-link, .edit-entry', function (e) {
     $('#entry-link').html(entry_field);
     $('#entries-form').addClass('active'); //We add the class active to the div entries-form to display the hidden form
 });
+
 $('body').on('click', '.save-entry', function (e) {
     e.preventDefault();
     if ($('#fields-wrapper input[name="entry_link"]').val() !== '') {

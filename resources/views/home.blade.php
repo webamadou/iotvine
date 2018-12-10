@@ -13,8 +13,8 @@
                     @endif
                 </div>
             </div> -->
-            <div class="breadcome-list">
-                <a href="{{ route('create_contest') }}" title="add a contest" class="btn btn-primary btn-block"><i class="icon nalika-plus"></i> Add a contest</a>
+            <div class="header-button">
+                <a href="{{ route('create_contest') }}" title="add a contest" class="btn btn-primary btn-block"><i class="icon nalika-"></i> Add a contest</a>
             </div>
             <div class="row">
             @foreach($contests as $contest)

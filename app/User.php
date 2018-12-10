@@ -32,4 +32,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Country') ;
     }
 
+    public function contests(){
+        return $this->hasMany('App\Contest');
+    }
+
 }

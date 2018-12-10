@@ -24,8 +24,8 @@ class ContestController extends Controller
     }
 
     public function index(){
-        $user_id = Auth::user()->id ;
-        $contests   = Contest::where(['user_id'=>$user_id,'status'=>1])
+        $user = Auth::user() ;
+        $contests   = Contest::where(['user_id'=>2,'status'=>1])
             ->orderBy('created_at', 'desc')
             ->paginate(6);
         return view('home', compact('contests'));
@@ -53,7 +53,7 @@ class ContestController extends Controller
 
     public function editPageTwo($slug){
         $contest    = Contest::where('slug', $slug)->with('entries')->first();
-        $networks   = Network::where('status',1)->get();
+        $networks   = Network::where('status',1)->with('entries')->get();
         return view('contests.pageTwo', compact('contest','networks'));
     }
 
@@ -112,6 +112,8 @@ class ContestController extends Controller
             if($saving){
                 return ['response' => 'SUCCESS','data' => $contest];
             }
+        } else {
+            return ['response' => 'ERROR', 'message' => [__('No entry were selected. You need to define at least an entry')]];
         }
         return ['response' => 'ERROR', 'message' => $contest->error];
     }

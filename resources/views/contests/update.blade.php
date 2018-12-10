@@ -2,12 +2,18 @@
 
 @section('content')
     <div id="app" class="container">
-        <h3>CONTEST {{ $contest->name }} SETTINGS</h3>
+        <div class="text-center"><strong>Contest {{ $contest->name }} settings</strong></div>
         {!! Form::model($contest, ['route' => ['edit_contest','slug'=>$contest->slug],'id'=>'firstPageUpdate']) !!}
             {!! Form::hidden('step','one') !!}
             {!! Form::hidden('id',null) !!}
             @include('contests/_form')
-            <div c~/>
+            <div class="row justify-content-center mb-2">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="submit" id="submit_page_one_update" class="btn btn-primary btn-lg btn-block">
+                        <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i> Update
+                    </button>
+                </div>
+            </div>
         {!! Form::close() !!}
     </div>
     <script type="text/javascript">

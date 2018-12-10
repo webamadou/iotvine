@@ -71,8 +71,8 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid" style="margin-top: 80px; min-height: 90vh;">
-            <div class="row admin text-center">
+        <div class="container-fluid pages-content">
+            <div class="row admin">
                 <div class="col-md-12">
                     @yield('content')
                 </div>

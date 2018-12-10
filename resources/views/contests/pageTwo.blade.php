@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="app" class="container">
-        <b>Set the entries</b>
+        <div class="text-center"><strong>Set the entries</strong></div>
         {!! Form::model($contest, ['route' => ['edit_contest','slug'=>$contest->slug],'id'=>'secondPageUpdate']) !!}
             {!! Form::hidden('step','one') !!}
             {!! Form::hidden('id',null) !!}
@@ -87,7 +87,13 @@
                 url:"{{ url('/contestUpdaterPageTwo')}}",
                 data: $('#secondPageUpdate').serialize(),
                 success:function(data){
-                    window.location.href = `{{url('/contestUpdaterPageThree')}}/${data.data.slug}`;
+                    if (data.response === 'SUCCESS'){
+                        window.location.href = `{{url('/contestUpdaterPageThree')}}/${data.data.slug}`;
+                    } else {
+                        $.each(data.message, function(key, value){
+                            toastr.error('<p>'+value+'</p>');
+                        });
+                    }
                 },
                 error: function (request, status, error) {
                     json = $.parseJSON(request.responseText);

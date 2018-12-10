@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>FILL THE FORM TO CREATE A CONTEST</h3>
+        <div class="text-center"><strong>FILL THE FORM TO CREATE A CONTEST</strong></div>
         {!! Form::model($contest, ['id' => 'firstPageUpdate','files' => true,'action'=>'ContestController@updatePageOne']) !!}
         @include('contests/_form')
         <div class="row justify-content-center mb-5">

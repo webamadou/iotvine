@@ -49,11 +49,17 @@ class Contest extends Model
             $this->attributes['slug'] = Str::slug($value);
         }
     }
+
+    /**
+     * Here we setup the getter so that we will have either a saved picture from db or a default picture
+     * @return string
+     */
     public function getImagesAttribute(){
-        if($this->attributes['images'] == null){
+        $image  = $this->attributes['images'];
+        $exists = Storage::disk('local')->exists($image);
+        if( $this->attributes['images'] == null || !$exists){
             return url('/'). Storage::url('images/contests/default_contest.png');
         }
-        //return url('/') . Storage::url('images/contests/default_contest.png');
-        return url('/'). Storage::url($this->attributes['images']);
+        return url('/'). Storage::url($image);
     }
 }
