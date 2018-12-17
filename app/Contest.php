@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -26,10 +27,12 @@ class Contest extends Model
     }
 
     public function getStartAttribute($value) {
-        return Carbon::parse($value)->format('Y-m-d H:i');
+        //return Carbon::parse($value)->format('Y-m-d H:i');
+        return new Carbon($value);
     }
     public function getEndAttribute($value) {
-        return Carbon::parse($value)->format('Y-m-d H:i');
+        //return Carbon::parse($value)->format('Y-m-d H:i');
+        return new Carbon($value);
     }
 
     public function formStartAttribute($value) {
@@ -61,5 +64,25 @@ class Contest extends Model
             return url('/'). Storage::url('images/contests/default_contest.png');
         }
         return url('/'). Storage::url($image);
+    }
+
+    /**
+     * The url attribute is set by combining th contest id and the user's id
+     * @return mixed
+     */
+    /*public function setUrlAttribute(){
+        if ( @$this->attributes['url'] === null){
+            $this->attributes['url'] = $this->attributes['id'].''.Auth::user()->id;
+        }
+        return $this->attributes['url'];
+    }*/
+    /**
+     * @return void
+     */
+    public static function boot(){
+        parent::boot();
+        self::created(function($model){
+                $model->update(["url" => $model->id.''.$model->user_id]) ;
+        });
     }
 }

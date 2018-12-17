@@ -36,7 +36,10 @@ class ContestController extends Controller
         $contest    = new Contest();
         return view('contests.create', compact('contest', 'user'));
     }
-
+    public function contest_public($slug){
+        $contest = Contest::where('slug',$slug)->first();
+        return view('contests.contest_public', compact('contest'));
+    }
     public function store(Request $request){
         //
     }
@@ -75,8 +78,8 @@ class ContestController extends Controller
 
         $this->validate($request, [
             'name'  => 'required',
-            'start' => 'required',
-            'end'   => 'required',
+            'start' => 'required|date_format:Y-m-d',
+            'end'   => 'required|date_format:Y-m-d',
             'images' => 'nullable|image'
         ]);
         $contest->name          = $request->input('name');
@@ -95,6 +98,11 @@ class ContestController extends Controller
         }
     }
 
+    /**
+     * This method will help save a contest. It will receive the data from the first form. It will be used to save or update the data
+     * @param Request $request
+     * @return array
+     */
     public function updatePageTwo(Request $request){
         $synchronises = [];
         $contest = Contest::findOrFail($request->input('id'));
@@ -118,6 +126,11 @@ class ContestController extends Controller
         return ['response' => 'ERROR', 'message' => $contest->error];
     }
 
+    /**
+     * This method will save the second form of the contest saving.
+     * @param Request $request
+     * @return array
+     */
     public function updatePageThree(Request $request){
         $errors     = [];
         $contest    = Contest::findOrFail($request->input('id'));
@@ -137,6 +150,7 @@ class ContestController extends Controller
     }
 
     /**
+     * This method delete a contest
      * @param $id
      * @return ArticleResource
      */
@@ -151,7 +165,6 @@ class ContestController extends Controller
     public function fileUpload(){
         return view('contests.uploadfile');
     }
-
     public function fileUploadPost(Request $request){
         $request->validate([
             'file' => 'image',

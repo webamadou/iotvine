@@ -16,6 +16,7 @@ Route::get('/', 'ContestController@index');
 Auth::routes();
 
 Route::get('/home', 'ContestController@index')->name('home');
+Route::get('/{slug}/index.html', 'ContestController@contest_public')->name('contest_url');
 Route::get('/contests', 'ContestController@index')->name('contests');
 //Here we set up the route to login with fb twt and g+
 Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider')->name('fblog');

@@ -22,7 +22,6 @@
                     <div class="personal-info-wrap">
                         <div class="widget-head-info-box">
                             <h2>{{ $contest->name }}</h2>
-                            <p>{{ $contest->description }}</p>
                             <div class="contest-img"><img src="{{$contest->images}}" class="img-circle circle-border m-b-md" alt="profile"></div>
                             <div class="contest-details">
                                 <div class="contest-countdown" data-end-date="{{$contest->end}}">{{ \Carbon\Carbon::parse($contest->end)->format('d/m/Y')}}</div>
