@@ -26,12 +26,12 @@ class ContestsPrizes extends Migration
                 ->references('id')
                 ->on('contests')
                 ->onUpdate('cascade')
-                ->onDelete('no action');
+                ->onDelete('cascade');
             $table->foreign('prize_id')
                 ->references('id')
                 ->on('prizes')
                 ->onUpdate('cascade')
-                ->onDelete('no action');
+                ->onDelete('cascade');
         });
     }
 

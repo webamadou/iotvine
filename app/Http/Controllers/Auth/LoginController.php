@@ -67,7 +67,7 @@ class LoginController extends Controller
         $avatar = explode('?',$user->avatar);
         $userDetails = [
             'email'         => $user->email,
-            'name'          => $user->nickname,
+            'name'          => $user->name,
             'token'         => $user->token,
             'fullname'      => $user->name,
             'image'         => @$avatar[0],
