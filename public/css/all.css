@@ -8117,3 +8117,9 @@ ul.list-group.list-group-flush li:nth-child(2n) {
 	font-weight: 300;
 	background: #eaeaec;
 }
+.aligncenter.water-mark {
+	color: #ececec !important;
+	text-decoration: none;
+	border: none !important;
+	font-weight: 700 !important;
+}

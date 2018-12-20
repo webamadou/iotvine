@@ -15,7 +15,7 @@
                         <div class="carousel-inner">
                             @foreach($contest->entries as $entry)
                                 <div class="carousel-item active" id="{{$entry->id}}">
-                                    <div class="row btn btn-primary btn-block p-3 mb-3" data-id="{{$contest->id}}">
+                                    <div class="row pick-entry btn btn-primary btn-block p-3 mb-3" data-id="{{$contest->id}}">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{$entry->name}} - {{$entry->pivot->entry_link}}</div>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-
+                    <div id="network-page"></div>
                 @endif
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-3">

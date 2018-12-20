@@ -88,6 +88,3 @@ $('body').on('click','.abort-saving',function (e) {
     $('.list-entries').removeClass('active');
     $('#entries-form').removeClass('active');
 });
-/*
-On the page three of create/iupdate contest we can add a prize without leaving the page
-*/

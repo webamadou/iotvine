@@ -20,7 +20,7 @@ class ContestController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => 'contest_public']);
     }
 
     public function index(){
@@ -37,6 +37,7 @@ class ContestController extends Controller
         return view('contests.create', compact('contest', 'user'));
     }
     public function contest_public($slug){
+        //$this->authorize('contest_public');
         $contest = Contest::where('slug',$slug)->first();
         return view('contests.contest_public', compact('contest'));
     }

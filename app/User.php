@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','password', 'email', 'token', 'fullname', 'image', 'service_api', 'address', 'city', 'url'
+        'name', 'email','password', 'email', 'token', 'fullname', 'image', 'service_api', 'address', 'city', 'url', 'rank'
     ];
 
     /**
@@ -36,4 +36,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Contest');
     }
 
+    /**
+     * This will tell if the user is a admin or not based on the value of its rank
+     * @return bool
+     */
+    public function isAdmin(){
+        if($this->rank === 12){return true;}
+        return false;
+    }
 }

@@ -6,7 +6,7 @@ $factory->define(App\Prize::class, function (Faker $faker) {
     $currency = App\Currency::where('name','Dollars')->first();
     return [
         'name'          => $faker->sentence(4),
-        'user_id'       => 1,
+        'user_id'       => mt_rand(0,1)?1:2,
         'currency_id'   => $currency->id,
         'description'   => $faker->paragraph(3),
         'images'        => $faker->imageUrl(),

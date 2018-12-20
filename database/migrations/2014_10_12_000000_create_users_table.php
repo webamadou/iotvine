@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('url')->default('')->comment("An id used to create an referencial url");
+            $table->integer('rank')->nullable()->default(1)->comment('This will define the rank of the user. The highest is 12 and is that of the admon');
             $table->integer("contest_alert")->nullable()->comment("Weather or not want to receive alert about his/her contest");
             $table->integer("newsletter_notifications")->nullable()->comment("If the user will receive our newsletter");
             $table->string("notification_email")->nullable()->comment("Alternative email to use for notifications. If not define default email is used");
